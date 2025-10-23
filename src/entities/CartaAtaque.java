@@ -2,15 +2,14 @@ package entities;
 
 public class CartaAtaque extends Carta {
 
-	public CartaAtaque(String nome, double poder) {
-		super(nome, poder);
-
+	public CartaAtaque(String nomeCarta, int poder) {
+		super(nomeCarta, poder);
 	}
 
 	@Override
 	public void jogar(Jogador atacante, Jogador inimigo) {
 		Carta.cartasJogadas++;
-		atacante.atacar(poder);
+		inimigo.atacar(this.poder);
 		
 		
 	}

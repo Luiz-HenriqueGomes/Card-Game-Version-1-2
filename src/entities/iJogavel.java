@@ -2,8 +2,8 @@ package entities;
 
 public interface iJogavel  {
 	 
-	public void atacar(Carta poder);
-	public void defender(Carta defesa);
+	public void atacar(int poder);
+	public void defender(int poder);
 	public boolean estaVivo();
 	
 }

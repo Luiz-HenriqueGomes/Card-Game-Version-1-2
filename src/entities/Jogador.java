@@ -1,21 +1,20 @@
 package entities;
 
-public class Jogador implements iJogavel{
-	
+public class Jogador implements iJogavel {
+
 	private String nome;
-	private int vida = 2;
-	private int defesa = 50;
-	
-	public Jogador(String nome, int vida, int defesa) {
+	private int vida;
+	private int defesa;
+
+	public Jogador(String nome) {
 		this.nome = nome;
-		this.vida = vida;
-		this.defesa = defesa;
+		this.vida = 2;
+		this.defesa = 50;
 	}
 
 	public String getNome() {
 		return nome;
 	}
-
 
 	public int getVida() {
 		return vida;
@@ -24,26 +23,27 @@ public class Jogador implements iJogavel{
 	public int getDefesa() {
 		return defesa;
 	}
-	
+
 	@Override
-	public void atacar(Carta poder) {
-		this.atacar(poder);;
+	public void atacar(int poder) {
+		this.defesa = this.defesa - poder;
+		if (this.defesa < 0) {
+			this.vida -= 1;
+			this.defesa += 50;
+		}
 	}
+
 	@Override
-	public void defender(Carta defesa) {
-		this.defender(defesa); 
+	public void defender(int poder) {
+		this.defesa += poder;
 	}
 
 	@Override
 	public boolean estaVivo() {
-		if(this.vida >= 0) {
-		return true;
+		if (this.vida > 0 || this.defesa > 0) {
+			return true;
 		}
 		return false;
 	}
 
-	public void atacar(double poder) {
-		
-		
-	}
 }

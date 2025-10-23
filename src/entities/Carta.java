@@ -3,11 +3,11 @@ package entities;
 public abstract class Carta {
 	
 	protected String nomeCarta;
-	protected double poder;
-	protected static int cartasJogadas;
+	protected int poder;
+	protected static int cartasJogadas = 0;
 	
-	public Carta(String nome, double poder) {
-		this.nomeCarta = nome;
+	public Carta(String nomeCarta, int poder) {
+		this.nomeCarta = nomeCarta;
 		this.poder = poder;
 	}
 
@@ -25,7 +25,7 @@ public abstract class Carta {
 
 	@Override
 	public String toString() {
-		return "Carta [nome=" + nomeCarta + ", poder=" + poder + "]";
+		return "Nome da carta" + nomeCarta + "| Poder: " + poder;
 	}
 	
 	public abstract void jogar(Jogador atacante, Jogador defensor);
